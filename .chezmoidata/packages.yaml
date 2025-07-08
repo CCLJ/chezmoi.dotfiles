@@ -1,0 +1,17 @@
+packages:
+  arch:
+    pacman:
+      - curl
+      - wget
+      - fzf
+      - ripgrep
+      - bat
+      - eza
+      - btop
+      - tmux
+      - yazi
+      - zoxide
+      - neovim
+      - ffmpeg
+    yay:
+      - neofetch

@@ -1,0 +1,27 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+yay --version > /dev/null
+if [ $? -eq 0 ]; then
+  echo "yay is installed"
+else
+  echo "yay NOT installed, aborting..."
+  exit 1
+fi
+
+{{ range .packages.arch.pacman -}}
+sudo pacman -Qs {{ . | quote }} > /dev/null
+if [ $? -ne 0 ]; then
+  sudo pacman -S {{ . | quote }}
+fi
+{{ end -}}
+
+
+{{ range .packages.arch.yay -}}
+sudo yay -Qs {{ . | quote }} > /dev/null
+if [ $? -ne 0 ]; then
+  sudo yay -S {{ . | quote }}
+fi
+{{ end -}}
+
+{{ end -}}
