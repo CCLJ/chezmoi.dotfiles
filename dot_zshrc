@@ -112,11 +112,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-alias myvim="NVIM_APPNAME=myvim nvim"
-alias lazyvim="NVIM_APPNAME=lazyvim nvim"
-alias astrovim="NVIM_APPNAME=astrovim nvim"
-alias nvchad="NVIM_APPNAME=nvchad nvim"
-
 # special utilities
 alias cat="bat --paging=never"
 alias ls="eza"
@@ -128,6 +123,8 @@ alias corne="qmk compile -kb crkbd/rev1 -km corne_v3_custom"
 # update local nvim config to myvim repo
 alias updatenvim="zsh ~/.config/updatenvim.zsh"
 
+# quickly add ssh key to agent to prevent sking for private passphrase everytime
+alias ssh-add-github="ssh-add ~/.ssh/github_id_ed25519"
 
 # Created by `pipx` on 2025-05-19 00:38:14
 export PATH="$PATH:/home/mrmime/.local/bin"
