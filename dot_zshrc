@@ -128,10 +128,14 @@ alias ssh-add-github='eval "$(ssh-agent)" & ssh-add ~/.ssh/github_id_ed25519'
 
 # Created by `pipx` on 2025-05-19 00:38:14
 export PATH="$PATH:/home/mrmime/.local/bin"
-# If manually installed tmuxifier use
+# If manually installed teval "$(tmuxifier init -)"muxifier use
 # export PATH="$HOME/.tmuxifier/bin:$PATH"
 # if using tpm, use the following
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+# export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
 
+# make sure ssh agen is running when terminal is opened
+eval $(ssh-agent)
 # zoxide setup
 eval "$(zoxide init zsh)"
