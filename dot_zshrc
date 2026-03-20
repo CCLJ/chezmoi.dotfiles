@@ -124,7 +124,7 @@ alias corne="qmk compile -kb crkbd/rev1 -km corne_v3_custom"
 alias updatenvim="zsh ~/.config/updatenvim.zsh"
 
 # quickly add ssh key to agent to prevent sking for private passphrase everytime
-alias ssh-add-github='eval "$(ssh-agent)" & ssh-add ~/.ssh/github_id_ed25519'
+alias ssh-add-github='ssh-add ~/.ssh/github_id_ed25519'
 
 # Created by `pipx` on 2025-05-19 00:38:14
 export PATH="$PATH:/home/mrmime/.local/bin"
@@ -135,7 +135,11 @@ export PATH="$PATH:/home/mrmime/.local/bin"
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
+# flutter version manager installed using curl -fsSL https://fvm.app/install.sh | sh
+export PATH="/home/mrmime/fvm/bin:$PATH"
+
 # make sure ssh agen is running when terminal is opened
 eval $(ssh-agent)
+
 # zoxide setup
 eval "$(zoxide init zsh)"

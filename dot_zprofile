@@ -8,3 +8,6 @@ export EDITOR=nvim
 
 # Created by `pipx` on 2025-05-19 00:38:14
 export PATH="$PATH:/home/mrmime/.local/bin"
+
+# Added by `rbenv init` on Thu Mar 12 11:15:17 AM CST 2026
+eval "$(rbenv init - --no-rehash zsh)"
