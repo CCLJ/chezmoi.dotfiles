@@ -112,6 +112,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# trick to allow sudo with special utilities https://wiki.archlinux.org/title/Sudo#Passing_aliases
+alias sudo='sudo '
+
 # special utilities
 alias cat="bat --paging=never"
 alias ls="eza"
