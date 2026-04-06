@@ -28,13 +28,11 @@ There is a script that will install the following packages automatically in arch
 - neovim
 - ffmpeg
 
-Other utilites to install manually:
-- volta (node manager) `https://volta.sh/`
-```sh
-curl https://get.volta.sh | bash
-volta install node
-```
+There are scripts to automatically download and install volta and uv:
 
+Other utilites to install manually:
+- Node using volta: `volta install node`
+- Python (latest version in case OS doesn't come with it): `uv python install`
 - hyprland with waybar (check current documentation for this https://github.com/hyprwm/Hyprland)
 - qmk `https://qmk.fm/`
 - docker (make sure to install the engines and not the desktop app)
