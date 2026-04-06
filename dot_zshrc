@@ -146,3 +146,6 @@ eval $(ssh-agent)
 
 # zoxide setup
 eval "$(zoxide init zsh)"
+
+# added for uv (python package manager)
+. "$HOME/.local/share/../bin/env"
