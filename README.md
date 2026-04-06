@@ -28,7 +28,10 @@ There is a script that will install the following packages automatically in arch
 - neovim
 - ffmpeg
 
-There are scripts to automatically download and install volta and uv:
+There are scripts to automatically download and install:
+- volta (node js version manager)
+- uv (python manager)
+- tpm (tmux plugin manager, it's just a git clone to it. The config for it is in a .config file)
 
 Other utilites to install manually:
 - Node using volta: `volta install node`
