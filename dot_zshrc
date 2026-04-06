@@ -129,6 +129,9 @@ alias updatenvim="zsh ~/.config/updatenvim.zsh"
 # quickly add ssh key to agent to prevent sking for private passphrase everytime
 alias ssh-add-github='ssh-add ~/.ssh/github_id_ed25519'
 
+# general export for all executables in .local/bin
+export PATH="$HOME/.local/bin:$PATH"
+
 # Created by `pipx` on 2025-05-19 00:38:14
 export PATH="$PATH:/home/mrmime/.local/bin"
 # If manually installed teval "$(tmuxifier init -)"muxifier use
@@ -137,6 +140,11 @@ export PATH="$PATH:/home/mrmime/.local/bin"
 # export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
+
+# volta setup (nodejs version manager)
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+. "$HOME/.cargo/env" # source "$HOME/.cargo/env"
 
 # flutter version manager installed using curl -fsSL https://fvm.app/install.sh | sh
 export PATH="/home/mrmime/fvm/bin:$PATH"
@@ -149,3 +157,4 @@ eval "$(zoxide init zsh)"
 
 # added for uv (python package manager)
 . "$HOME/.local/share/../bin/env"
+echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc

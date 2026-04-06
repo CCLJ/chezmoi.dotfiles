@@ -3,6 +3,8 @@ packages:
     pacman:
       - curl
       - wget
+      - git
+      - base-devel
       - fzf
       - ripgrep
       - bat
