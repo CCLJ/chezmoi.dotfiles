@@ -7,7 +7,17 @@
 export EDITOR=nvim
 
 # Created by `pipx` on 2025-05-19 00:38:14
-export PATH="$PATH:/home/mrmime/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Added by `rbenv init` on Thu Mar 12 11:15:17 AM CST 2026
 eval "$(rbenv init - --no-rehash zsh)"
+
+# volta setup (nodejs version manager)
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+. "$HOME/.cargo/env" # source "$HOME/.cargo/env"
+
+# flutter version manager installed using curl -fsSL https://fvm.app/install.sh | sh
+export PATH="/home/mrmime/fvm/bin:$PATH"
+# added to make sure fvm flutter doctor finds chrome
+export CHROME_EXECUTABLE="$(which google-chrome-stable)"
