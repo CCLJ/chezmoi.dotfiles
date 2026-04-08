@@ -1,5 +1,5 @@
-
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Runs in interactive shells: i.e. a terminal
+# Is not loaded before a script is run and not loaded in login shells
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

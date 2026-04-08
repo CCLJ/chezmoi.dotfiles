@@ -1,4 +1,7 @@
-# prevents adding duplicate paths
+# First shell file to initiate (zenv > zprofile > profile > zshrc)
+# Loads in all types of shells i.e. login shells, terminals, runs before a script is run
+
+# prevents adding duplicate paths.
 path_add() {
   case ":$PATH:" in
     *":$1:"*) ;; # already in PATH

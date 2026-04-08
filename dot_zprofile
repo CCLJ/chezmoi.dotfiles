@@ -1,8 +1,10 @@
 #
 # ~/.zprofile
+# This is loaded only for login shell, loads just once per session
+# .profile is loaded after
 #
 
-[[ -f ~/.profile ]] && . ~/.profile
+# [[ -f ~/.profile ]] && . ~/.profile
 
 export EDITOR=nvim
 
