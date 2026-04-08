@@ -1,7 +1,4 @@
-
+# volta setup (nodejs version manager)
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+path_add "$VOLTA_HOME/bin"
 . "$HOME/.cargo/env"
-
-# added for uv (python package manager)
-. "$HOME/.local/share/../bin/env"

@@ -13,9 +13,6 @@ PS1='[\u@\h \W]\$ '
 if uwsm check may-start && uwsm select; then
 	exec uwsm start default
 fi
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-. "$HOME/.cargo/env"
 
 # added for uv (python package manager)
 . "$HOME/.local/share/../bin/env"

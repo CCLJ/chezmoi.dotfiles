@@ -2,10 +2,4 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-. "$HOME/.cargo/env"
-
-# added for uv (python package manager)
-. "$HOME/.local/share/../bin/env"
+[[ -f ~/.profile ]] && . ~/.profile

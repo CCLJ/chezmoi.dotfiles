@@ -1,4 +1,7 @@
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-. "$HOME/.cargo/env"
+# prevents adding duplicate paths
+path_add() {
+  case ":$PATH:" in
+    *":$1:"*) ;; # already in PATH
+    *) PATH="$1:$PATH" ;;
+  esac
+}

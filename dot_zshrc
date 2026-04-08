@@ -127,7 +127,8 @@ alias corne="qmk compile -kb crkbd/rev1 -km corne_v3_custom"
 alias updatenvim="zsh ~/.config/updatenvim.zsh"
 
 # tmuxifier using tpm
-export PATH="$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin:$PATH"
+# export PATH="$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin:$PATH"
+path_add "$XDG_CONFIG_HOME/tmux/plugins/tmuxifier/bin"
 eval "$(tmuxifier init -)"
 
 # make sure ssh agen is running when terminal is opened
