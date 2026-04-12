@@ -140,3 +140,8 @@ eval "$(zoxide init zsh)"
 # added for uv (python package manager)
 . "$HOME/.local/share/../bin/env"
 eval "$(uv generate-shell-completion zsh)"
+
+# volta setup (nodejs version manager)
+export VOLTA_HOME="$HOME/.volta"
+path_add "$VOLTA_HOME/bin"
+. "$HOME/.cargo/env"

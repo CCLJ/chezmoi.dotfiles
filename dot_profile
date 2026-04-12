@@ -1,7 +1,2 @@
 # This is loaded for login shell, runs just once per session
-# Loads after zprofile when using zsh
-
-# volta setup (nodejs version manager)
-export VOLTA_HOME="$HOME/.volta"
-path_add "$VOLTA_HOME/bin"
-. "$HOME/.cargo/env"
+# currently it doesn load by default since zprofile is being used
