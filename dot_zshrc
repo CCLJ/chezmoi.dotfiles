@@ -138,6 +138,7 @@ eval $(ssh-agent)
 eval "$(zoxide init zsh)"
 
 # added for uv (python package manager)
+export UV_NO_MODIFY_PATH=1
 . "$HOME/.local/share/../bin/env"
 eval "$(uv generate-shell-completion zsh)"
 
