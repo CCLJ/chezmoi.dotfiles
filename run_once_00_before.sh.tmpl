@@ -9,19 +9,24 @@ else
   exit 1
 fi
 
+echo "Will install pacman packages, triggered by chezmoi"
 {{ range .packages.arch.pacman -}}
 pacman -Qs {{ . | quote }} > /dev/null
 if [ $? -ne 0 ]; then
   sudo pacman -S {{ . | quote }}
 fi
 {{ end -}}
+echo "Finished installing pacman packages, triggered by chezmoi"
 
-
-{{ range .packages.arch.yay -}}
-yay -Qs {{ . | quote }} > /dev/null
-if [ $? -ne 0 ]; then
-  sudo yay -S {{ . | quote }}
-fi
+{{ if index .packages.arch "yay" }}
+  echo "Will install yay packages, triggered by chezmoi"
+  {{ range .packages.arch.yay -}}
+  yay -Qs {{ . | quote }} > /dev/null
+  if [ $? -ne 0 ]; then
+    sudo yay -S {{ . | quote }}
+  fi
+  {{ end -}}
+  echo "Finished installing yay packages, triggered by chezmoi"
 {{ end -}}
 
 {{ end -}}
