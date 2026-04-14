@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Only run if ssh-agent is available
+[[ -z "${SSH_AUTH_SOCK:-}" ]] && exit 0
+
+echo "ssh-add ing keys in ~/.ssh/"
+for key in "$HOME"/.ssh/id_*; do
+  [[ "$key" == *.pub ]] && continue
+  [[ -f "$key" ]] || continue
+
+  # get fingerprint
+  fp=$(ssh-keygen -lf "$key" 2>/dev/null | awk '{print $2}') || continue
+
+  # skip if already loaded
+  if ssh-add -l 2>/dev/null | grep -q "$fp"; then
+    echo "Key $key already loaded, skipping -----"
+    continue
+  fi
+
+  echo "Loading key: $key"
+  ssh-add -t 1h "$key" 2>/dev/null
+done
+echo "Finished adding keys to ssh agent"
