@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+echo "Setting up pacman hooks, copying to defailt /etc/pacman.d/hooks/"
+
+SRC="{{ .chezmoi.homeDir }}/.config/pacmanhooks"
+DEST="/etc/pacman.d/hooks"
+
+if [ -d "$SRC" ]; then
+  echo "Syncing pacman hooks..."
+
+  sudo mkdir -p "$DEST"
+  sudo rsync -av --delete "$SRC"/ "$DEST"/
+fi
+echo "Finished setting up pacman hooks"
