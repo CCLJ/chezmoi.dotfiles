@@ -5,20 +5,24 @@ set -euo pipefail
 [[ -z "${SSH_AUTH_SOCK:-}" ]] && exit 0
 
 echo "ssh-add ing keys in ~/.ssh/"
-for key in "$HOME"/.ssh/id_*; do
-  [[ "$key" == *.pub ]] && continue
+for pub in "$HOME"/.ssh/*.pub; do
+  [[ -f "$pub" ]] || continue
+
+  # strip .pub to get private key path
+  key="${pub%.pub}"
+
+  # skip if private key doesn't exist
+  echo "Processing key: $key"
   [[ -f "$key" ]] || continue
 
-  # get fingerprint
+  # optional: skip if already loaded
   fp=$(ssh-keygen -lf "$key" 2>/dev/null | awk '{print $2}') || continue
-
-  # skip if already loaded
   if ssh-add -l 2>/dev/null | grep -q "$fp"; then
-    echo "Key $key already loaded, skipping -----"
+    echo "Key $key already loaded, skipping ---"
     continue
   fi
 
-  echo "Loading key: $key"
-  ssh-add -t 1h "$key" 2>/dev/null
+  ssh-add -t 1h "$key"
+  echo "Finished processing key: $key"
 done
 echo "Finished adding keys to ssh agent"
