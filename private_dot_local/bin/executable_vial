@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# SETUP BEFORE RUNNING THIS SCRIPT
+# cd ~/vial-qmk
+# uv venv .venv
+# uv pip install -r requirements.txt
+# chmod +x ~/.local/bin/vial
+
+# Wrapper to run qmk CLI from the vial-qmk repo
+export QMK_HOME=~/vial-qmk
+source ~/vial-qmk/.venv/bin/activate
+qmk "$@"

@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+VIAL_DIR="$HOME/vial-qmk"
+
+if [ ! -d "$VIAL_DIR" ]; then
+  echo "vial-qmk directory not found at $VIAL_DIR, skipping."
+  exit 0
+fi
+
+echo "Setting up vial-qmk virtualenv..."
+cd "$VIAL_DIR"
+uv venv .venv
+uv pip install -r requirements.txt
+
+echo "Done."
+
+cd "$HOME"

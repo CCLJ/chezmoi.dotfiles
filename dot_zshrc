@@ -146,3 +146,8 @@ eval "$(uv generate-shell-completion zsh)"
 export VOLTA_HOME="$HOME/.volta"
 path_add "$VOLTA_HOME/bin"
 . "$HOME/.cargo/env"
+
+# original qmk repo location
+# you can also have vial-qmk repo, to compile it use command vial
+# that is setup with custom script in ~/.local/bin/vial
+export QMK_HOME=~/qmk_firmware   # adjust to your actual path
