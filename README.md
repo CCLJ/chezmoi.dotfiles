@@ -1,8 +1,7 @@
 # dotfiles
 
 Before initializing dotfiles with chezmoi make sure to do the following:
-- Setup zsh as shell
-- Setup oh-my-zsh
+- You setup arch with omarchy (arch linux with preconfigured hyprland)
 - Install nerdfont Iosevka (either manually or using pacman/yay which I prefer, and then setup the config in your terminal emulator)
     - To setup the font for kitty, edit `~/.config/kitty/kitty.conf` (or press CTRL+SHIFT+F2) and make sure to have:
     ```

@@ -1,2 +1,0 @@
-# This is loaded for login shell, runs just once per session
-# currently it doesn load by default since zprofile is being used
