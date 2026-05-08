@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eufo pipefail
+
+if command -v rustup >/dev/null 2>&1; then
+    echo "rustup already installed"
+    exit 0
+fi
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+    | sh -s -- -y --no-modify-path

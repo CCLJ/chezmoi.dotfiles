@@ -16,3 +16,8 @@ packages:
       - neovim
       - ffmpeg
       - fastfetch
+      - go
+      - gopls
+      - lua
+      - lua51
+      - lua-language-server
