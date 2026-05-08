@@ -51,3 +51,5 @@ export UV_NO_MODIFY_PATH=1
 # fvm (flutter and dart manager)
 path_add "$HOME/fvm/bin"
 
+# doom emacs
+path_add "$HOME/.config/emacs/bin"
