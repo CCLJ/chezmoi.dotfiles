@@ -76,8 +76,23 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; use/sync system clipboard
+(setq select-enable-clipboard t)
+;; (after! evil
+;;   (setq evil-want-clipboard t))
+
 ;; lua lsp extra setup
 (after! lsp-mode
   (setq lsp-lua-diagnostics-globals ["vim"]
         lsp-lua-workspace-library
-        (vector (expand-file-name "~/.config/emacs/"))))
+        (vector (expand-file-name "~/.config/nvim/"))))
+
+;; remove LSP delays
+(after! flycheck (setq flycheck-idle-change-delay 0.5))
+(after! lsp-mode
+  (setq lsp-idle-delay 0.5)
+  (setq lsp-completion-enable-additional-text-edit t)
+  (setq lsp-modeline-code-actions-enable t))
+
+;; autoformat on save
+(setq +format-on-save-enabled t)
