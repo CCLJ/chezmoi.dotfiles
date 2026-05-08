@@ -21,3 +21,4 @@ packages:
       - lua
       - lua51
       - lua-language-server
+      - emacs
