@@ -3,6 +3,8 @@
 #define VIAL_KEYBOARD_UID {0xb0, 0x38, 0x05, 0xd8, 0xd2, 0x54, 0x58, 0x26}
 #define VIAL_UNLOCK_COMBO_ROWS {0, 0}
 #define VIAL_UNLOCK_COMBO_COLS {0, 1}
+#define RGBLIGHT_SLEEP
+#define RGBLIGHT_TIMEOUT 600000  // milliseconds, so this is 10 minutes
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
