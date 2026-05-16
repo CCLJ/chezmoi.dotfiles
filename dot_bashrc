@@ -55,3 +55,12 @@ path_add "$HOME/fvm/bin"
 
 # doom emacs
 path_add "$HOME/.config/emacs/bin"
+
+### FZF - already enabled by omarchy at some point, just adding for doc purposes ###
+# Enables the following keybindings:
+# CTRL-t = fzf select
+# CTRL-r = fzf history
+# ALT-c  = fzf cd
+# eval "$(fzf --bash)"
+
+
