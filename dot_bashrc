@@ -10,6 +10,8 @@ source ~/.local/share/omarchy/default/bash/rc
 alias sudo='sudo '
 alias svim='sudo -E nvim' # load nvim config in sudo restricted files
 alias cat="bat --paging=never"
+alias emacs="emacsclient -c -a 'emacs'" # GUI versions of Emacs
+alias emacstui="emacsclient -t -a 'emacs'" # TUI versions of Emacs
 
 # path_add utility function
 path_add() {
