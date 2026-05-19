@@ -15,4 +15,4 @@ bindkey '^[[B' down-line-or-beginning-search
 # -------------------------------------------
 
 # Delete key was doing something weird so had to explicitly set it here
-bindkey '\e[3~' delete-char
+bindkey "^[[3~" delete-char
