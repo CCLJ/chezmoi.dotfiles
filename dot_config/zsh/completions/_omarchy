@@ -1,0 +1,66 @@
+#compdef omarchy
+
+local omarchy_path bin_dir
+omarchy_path=$(command -v omarchy 2>/dev/null) || return 1
+
+bin_dir=$(dirname -- "$(readlink -f -- "$omarchy_path" 2>/dev/null || printf '%s' "$omarchy_path")")
+[[ -d $bin_dir ]] || return 1
+
+local prefix="omarchy"
+local i part
+
+for (( i = 2; i < CURRENT; i++ )); do
+    part="${words[i]}"
+
+    [[ -z $part || $part == -* ]] && continue
+
+    prefix+="-$part"
+done
+
+local -a candidates
+local -A seen
+
+setopt LOCAL_OPTIONS NULL_GLOB
+
+local file basename rest next
+
+for file in "$bin_dir/$prefix"-*; do
+    [[ -f $file && -x $file ]] || continue
+
+    basename="${file:t}"
+    rest="${basename#"$prefix"-}"
+    next="${rest%%-*}"
+
+    if [[ -n $next && -z ${seen[$next]} ]]; then
+        seen[$next]=1
+        candidates+=("$next")
+    fi
+done
+
+if (( CURRENT == 2 )); then
+    candidates+=("commands")
+fi
+
+if [[ ${words[2]:-} == commands ]] && (( CURRENT >= 3 )); then
+    candidates+=(
+        --all
+        --json
+        --markdown
+        --check
+    )
+fi
+
+if (( ${#candidates[@]} == 0 )) && [[ -x "$bin_dir/$prefix" ]]; then
+    local args enum
+
+    args=$(grep -m 1 '^# omarchy:args=<' "$bin_dir/$prefix" 2>/dev/null)
+
+    enum="${args#*<}"
+    enum="${enum%%>*}"
+
+    if [[ "$enum" == *"|"* && "$enum" != *" "* ]]; then
+        candidates+=(${(s:|:)enum})
+    fi
+fi
+
+_describe 'omarchy commands' candidates

@@ -1,0 +1,4 @@
+source ~/.config/zsh/envs.zsh
+source ~/.config/zsh/completions/completion.zsh
+source ~/.config/zsh/history.zsh
+source ~/.config/zsh/keybinds.zsh

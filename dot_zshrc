@@ -1,0 +1,101 @@
+# If not running interactively, don't do anything (leave this at the top of this file)
+[[ $- != *i* ]] && return
+
+# prevent duplicate directories in PATH
+typeset -U path PATH
+
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+# source ~/.local/share/omarchy/default/bash/rc
+source ~/.local/share/omarchy/default/bash/aliases
+# source ~/.local/share/omarchy/default/bash/inputrc
+
+# Add your own exports, aliases, and functions here.
+
+alias sudo='sudo '
+alias svim='sudo -E nvim' # load nvim config in sudo restricted files
+alias cat="bat --paging=never"
+alias emacs="emacsclient -c -a 'emacs'" # GUI versions of Emacs
+alias emacstui="emacsclient -t -a 'emacs'" # TUI versions of Emacs
+
+# path_add utility function
+path_add() {
+  case ":$PATH:" in
+    *":$1:"*) ;; # already in PATH
+    *) PATH="$1:$PATH" ;;
+  esac
+}
+
+# general location for executables (custom or installed by package)
+# path_add "$HOME/.local/bin"
+
+# yazi
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+eval $(ssh-agent)
+
+# rustup setup (rust manager)
+. "$HOME/.cargo/env"
+
+# Added by `rbenv init` on Tue Apr 21 04:15:06 PM CST 2026
+eval "$(rbenv init - --no-rehash zsh)"
+
+# added by volta (node manager)
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
+
+# added by uv (python manager)
+export UV_NO_MODIFY_PATH=1
+. "$HOME/.local/share/../bin/env"
+
+# fvm (flutter and dart manager)
+# path_add "$HOME/fvm/bin"
+
+# doom emacs
+# path_add "$HOME/.config/emacs/bin"
+
+### FZF - already enabled by omarchy at some point, just adding for doc purposes ###
+# Enables the following keybindings:
+# CTRL-t = fzf select
+# CTRL-r = fzf history
+# ALT-c  = fzf cd
+# eval "$(fzf --zsh)"
+
+# source <(fzf --zsh)
+# eval "$(starship init zsh)"
+# eval "$(zoxide init zsh)"
+
+# mise setup
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
+# zoxide setup
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# fzf setup
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
+
+# expose omarchy commands like omarchy-theme as omarchy theme instead
+# NOTE: currently does not work do to script using bash specific commands.
+# source "$OMARCHY_PATH/default/bash/completions"
+# ALTERNATIVE WITH NATIVE ZSH SCRIPT
+fpath=(~/.config/zsh/completions $fpath)
+
+source ~/.config/zsh/rc
+
+# starship setup
+if [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]] && command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
