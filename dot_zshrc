@@ -27,7 +27,7 @@ path_add() {
 }
 
 # general location for executables (custom or installed by package)
-# path_add "$HOME/.local/bin"
+path_add "$HOME/.local/bin"
 
 # yazi
 function y() {
