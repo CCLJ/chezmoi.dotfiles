@@ -48,8 +48,8 @@ eval $(ssh-agent)
 eval "$(rbenv init - --no-rehash zsh)"
 
 # added by volta (node manager)
-# export VOLTA_HOME="$HOME/.volta"
-# export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # added by uv (python manager)
 export UV_NO_MODIFY_PATH=1
@@ -61,24 +61,9 @@ export UV_NO_MODIFY_PATH=1
 # doom emacs
 path_add "$HOME/.config/emacs/bin"
 
-### FZF - already enabled by omarchy at some point, just adding for doc purposes ###
-# Enables the following keybindings:
-# CTRL-t = fzf select
-# CTRL-r = fzf history
-# ALT-c  = fzf cd
-
-# source <(fzf --zsh)
-# eval "$(starship init zsh)"
-# eval "$(zoxide init zsh)"
-
 # mise setup
 if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
-fi
-
-# fzf setup
-if command -v fzf &> /dev/null; then
-  source <(fzf --zsh)
 fi
 
 # expose omarchy commands like omarchy-theme as omarchy theme instead
@@ -88,6 +73,16 @@ fi
 fpath=(~/.config/zsh/completions $fpath)
 
 source ~/.config/zsh/rc
+
+# fzf setup
+if command -v fzf &> /dev/null; then
+  # Enables the following keybindings:
+  # CTRL-t = fzf select
+  # CTRL-r = fzf history
+  # ALT-c  = fzf cd
+  # source <(fzf --zsh)
+  eval "$(fzf --zsh)"
+fi
 
 # zoxide setup; needed after compinit
 if command -v zoxide &> /dev/null; then

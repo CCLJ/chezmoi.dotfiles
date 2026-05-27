@@ -1,5 +1,8 @@
-bindkey '^I' menu-complete
-bindkey '^[Z' reverse-menu-complete
+# newer style for navigating completion suggestions with tab and shift+tab
+zstyle ':completion:*' menu select
+# old style of navigating completion suggestions (tab and shift+tab)
+# bindkey '^I' menu-complete
+# bindkey '^[Z' reverse-menu-complete
 
 # autocomplete -----------------------------
 autoload -Uz up-line-or-beginning-search
