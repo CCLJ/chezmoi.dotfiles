@@ -9,7 +9,7 @@ zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
-# autocomplete alternative
+# autocomplete alternative. uncomment source line in history.zsh
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 # -------------------------------------------

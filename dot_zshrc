@@ -66,7 +66,6 @@ path_add "$HOME/.config/emacs/bin"
 # CTRL-t = fzf select
 # CTRL-r = fzf history
 # ALT-c  = fzf cd
-# eval "$(fzf --zsh)"
 
 # source <(fzf --zsh)
 # eval "$(starship init zsh)"
@@ -75,11 +74,6 @@ path_add "$HOME/.config/emacs/bin"
 # mise setup
 if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
-fi
-
-# zoxide setup
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh)"
 fi
 
 # fzf setup
@@ -94,6 +88,11 @@ fi
 fpath=(~/.config/zsh/completions $fpath)
 
 source ~/.config/zsh/rc
+
+# zoxide setup; needed after compinit
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # starship setup
 if [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]] && command -v starship &> /dev/null; then

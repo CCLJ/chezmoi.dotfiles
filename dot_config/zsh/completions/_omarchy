@@ -1,5 +1,6 @@
 #compdef omarchy
 
+# this is added to fpath in zshrc
 local omarchy_path bin_dir
 omarchy_path=$(command -v omarchy 2>/dev/null) || return 1
 
