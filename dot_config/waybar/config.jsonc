@@ -10,8 +10,7 @@
     "group/tray-expander",
     "bluetooth",
     "network",
-    "pulseaudio",
-    "pulseaudio/slider",
+    "group/audio",
     "cpu",
     "battery"
   ],
@@ -111,8 +110,8 @@
     "format": "",
     "format-off": "󰂲",
     "format-disabled": "󰂲",
-    "format-connected": "󰂱",
-    "format-no-controller": "",
+    "format-connected": "󰂱 {device_alias}",
+    "format-no-controller": "N/A",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "omarchy-launch-bluetooth"
   },
@@ -133,6 +132,13 @@
     "min": 0,
     "max": 100,
     "orientation": "horizontal"
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider"
+    ]
   },
   "group/tray-expander": {
     "orientation": "inherit",
