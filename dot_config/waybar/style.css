@@ -14,6 +14,7 @@
 
 .modules-left {
   margin-left: 8px;
+  font-family: 'Symbols Nerd Font Mono', sans-serif;
 }
 
 .modules-right {
@@ -138,6 +139,27 @@ tooltip {
 
 #custom-voxtype.recording {
   color: #a55555;
+}
+
+#mpris {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #1DB954;
+  color: @background;
+  border-radius: 5px;
+  padding: 2px 8px;
+}
+
+#mpris.paused {
+  opacity: 0.6;
+}
+
+#mpris.stopped {
+  opacity: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #custom-weather {
