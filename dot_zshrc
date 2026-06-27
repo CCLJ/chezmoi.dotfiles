@@ -39,7 +39,8 @@ function y() {
     rm -f -- "$tmp"
 }
 
-eval $(ssh-agent)
+# eval $(ssh-agent)  # spawns new agent per terminal — use systemd socket instead
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"  # enable once: systemctl --user enable --now ssh-agent.socket
 
 # rustup setup (rust manager)
 . "$HOME/.cargo/env"
