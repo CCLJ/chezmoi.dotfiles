@@ -1,0 +1,19 @@
+onboarding = false
+
+[terminal]
+default_shell = "zsh"
+new_cwd = "follow"
+
+[theme]
+name = "catppuccin"
+
+[keys]
+prefix = "ctrl+space"
+rename_tab = "prefix+,"
+close_tab = "prefix+&"
+split_vertical = "prefix+%"
+split_horizontal = 'prefix+"'
+detach = "prefix+d"
+switch_tab = "prefix+1..9"
+switch_workspace = "prefix+shift+1..9"
+focus_agent = "prefix+alt+1..9"
